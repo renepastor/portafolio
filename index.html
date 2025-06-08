@@ -5,26 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Portafolio de René Pastor Mamani Flores - Desarrollador Full Stack con más de 18 años de experiencia">
     <title>René Pastor Mamani Flores | Desarrollador Full Stack</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --text-color: #333;
-            --light-bg: #f8f9fa;
-            --border-color: #e9ecef;
+            --primary-color: #1a1a1a;
+            --secondary-color: #2d2d2d;
+            --accent-color: #00a8ff;
+            --text-color: #e0e0e0;
+            --text-secondary: #b0b0b0;
+            --border-color: #404040;
+            --card-bg: #2d2d2d;
+            --header-bg: #1a1a1a;
+            --hover-color: #00a8ff;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            transition: background-color 0.3s, color 0.3s;
         }
 
         body {
             font-family: 'Segoe UI', 'Arial', sans-serif;
             line-height: 1.6;
             color: var(--text-color);
-            background-color: var(--light-bg);
+            background-color: var(--primary-color);
         }
 
         .container {
@@ -34,10 +40,11 @@
         }
 
         header {
-            background-color: var(--primary-color);
-            color: white;
+            background-color: var(--header-bg);
+            color: var(--text-color);
             padding: 2rem 0;
             position: relative;
+            border-bottom: 1px solid var(--border-color);
         }
 
         .header-content {
@@ -63,15 +70,16 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            color: var(--text-secondary);
         }
 
         .contact-item a {
-            color: white;
+            color: var(--text-color);
             text-decoration: none;
         }
 
         .contact-item a:hover {
-            text-decoration: underline;
+            color: var(--hover-color);
         }
 
         main {
@@ -79,27 +87,29 @@
         }
 
         section {
-            background: white;
+            background: var(--card-bg);
             border-radius: 8px;
             padding: 2rem;
             margin-bottom: 2rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border: 1px solid var(--border-color);
         }
 
         h1 {
             font-size: 2.5rem;
             margin-bottom: 0.5rem;
+            color: var(--text-color);
         }
 
         h2 {
-            color: var(--primary-color);
+            color: var(--accent-color);
             margin-bottom: 1.5rem;
             padding-bottom: 0.5rem;
             border-bottom: 2px solid var(--border-color);
         }
 
         h3 {
-            color: var(--secondary-color);
+            color: var(--text-color);
             margin: 1.5rem 0 1rem;
         }
 
@@ -111,14 +121,18 @@
         }
 
         .skill-category {
-            background: var(--light-bg);
-            padding: 1rem;
-            border-radius: 6px;
+            background: var(--secondary-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
         }
 
         .skill-category h4 {
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .skill-list {
@@ -126,43 +140,93 @@
         }
 
         .skill-list li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
             padding-left: 1.5rem;
             position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        .skill-list li::before {
-            content: "•";
-            color: var(--secondary-color);
-            position: absolute;
-            left: 0;
+        .skill-list li i {
+            color: var(--accent-color);
+        }
+
+        .experience-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .experience-tab {
+            padding: 0.5rem 1rem;
+            background: var(--secondary-color);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            cursor: pointer;
+            color: var(--text-secondary);
+        }
+
+        .experience-tab.active {
+            background: var(--accent-color);
+            color: var(--text-color);
+        }
+
+        .experience-content {
+            display: none;
+        }
+
+        .experience-content.active {
+            display: block;
         }
 
         .experience-item {
             margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--secondary-color);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
         }
 
         .experience-header {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
         .experience-company {
             font-weight: bold;
-            color: var(--primary-color);
+            color: var(--accent-color);
+            font-size: 1.2rem;
         }
 
         .experience-date {
-            color: var(--secondary-color);
+            color: var(--text-secondary);
+        }
+
+        .experience-image {
+            width: 100%;
+            max-width: 300px;
+            height: 200px;
+            background: var(--primary-color);
+            border-radius: 8px;
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
         }
 
         footer {
-            background-color: var(--primary-color);
-            color: white;
+            background-color: var(--header-bg);
+            color: var(--text-secondary);
             text-align: center;
-            padding: 1rem 0;
+            padding: 1.5rem 0;
             margin-top: 2rem;
+            border-top: 1px solid var(--border-color);
         }
 
         @media (max-width: 768px) {
@@ -178,6 +242,10 @@
             .experience-header {
                 flex-direction: column;
                 gap: 0.5rem;
+            }
+
+            .experience-tabs {
+                justify-content: center;
             }
         }
     </style>
@@ -219,54 +287,54 @@
     <main class="container">
         <section id="perfil">
             <h2>Perfil Profesional</h2>
-            <p>Desarrollador de sistemas con una sólida trayectoria de más de 18 años en el análisis y desarrollo de soluciones informáticas innovadoras y personalizadas para diversos sectores, incluyendo instituciones públicas y empresas privadas. Experiencia comprobada liderando y colaborando en equipos multidisciplinarios bajo metodologías ágiles. Apasionado por la adopción de nuevas tecnologías y el crecimiento profesional continuo.</p>
+            <p>Desarrollador de sistemas, con más de 18 años en el área de análisis y desarrollo de sistemas en empresas públicas y privadas con equipos diversos utilizando metodologías ágiles. Elaboración de soluciones informáticas personalizadas. Apasionado por el crecimiento profesional continuo.</p>
         </section>
 
         <section id="habilidades">
             <h2>Habilidades Técnicas</h2>
             <div class="skills-grid">
                 <div class="skill-category">
-                    <h4>Lenguajes de Programación</h4>
+                    <h4><i class="fas fa-code"></i> Lenguajes de Programación</h4>
                     <ul class="skill-list">
-                        <li>JAVA (Spring Framework, Spring Boot)</li>
-                        <li>NodeJs</li>
-                        <li>PHP (Smarty, PEAR)</li>
-                        <li>.NET (MVC2, MVC3)</li>
-                        <li>Python</li>
+                        <li><i class="fab fa-java"></i> JAVA (Spring Framework, Spring Boot)</li>
+                        <li><i class="fab fa-node-js"></i> NodeJs</li>
+                        <li><i class="fab fa-php"></i> PHP (Smarty, PEAR)</li>
+                        <li><i class="fab fa-microsoft"></i> .NET (MVC2, MVC3)</li>
+                        <li><i class="fab fa-python"></i> Python</li>
                     </ul>
                 </div>
                 <div class="skill-category">
-                    <h4>Front-End</h4>
+                    <h4><i class="fas fa-laptop-code"></i> Front-End</h4>
                     <ul class="skill-list">
-                        <li>VueJs (Nuxt)</li>
-                        <li>React (NextJS)</li>
-                        <li>Angular</li>
-                        <li>Astro</li>
-                        <li>JQuery</li>
-                        <li>HTML5</li>
-                        <li>CSS3</li>
+                        <li><i class="fab fa-vuejs"></i> VueJs (Nuxt)</li>
+                        <li><i class="fab fa-react"></i> React (NextJS)</li>
+                        <li><i class="fab fa-angular"></i> Angular</li>
+                        <li><i class="fas fa-rocket"></i> Astro</li>
+                        <li><i class="fab fa-js"></i> JQuery</li>
+                        <li><i class="fab fa-html5"></i> HTML5</li>
+                        <li><i class="fab fa-css3-alt"></i> CSS3</li>
                     </ul>
                 </div>
                 <div class="skill-category">
-                    <h4>Bases de Datos</h4>
+                    <h4><i class="fas fa-database"></i> Bases de Datos</h4>
                     <ul class="skill-list">
-                        <li>PostgreSQL</li>
-                        <li>MySQL</li>
-                        <li>Oracle (PL/SQL)</li>
-                        <li>SQLite</li>
-                        <li>MSSQL</li>
+                        <li><i class="fas fa-database"></i> PostgreSQL</li>
+                        <li><i class="fas fa-database"></i> MySQL</li>
+                        <li><i class="fas fa-database"></i> Oracle (PL/SQL)</li>
+                        <li><i class="fas fa-database"></i> SQLite</li>
+                        <li><i class="fas fa-database"></i> MSSQL</li>
                     </ul>
                 </div>
                 <div class="skill-category">
-                    <h4>Herramientas & Otros</h4>
+                    <h4><i class="fas fa-tools"></i> Herramientas & Otros</h4>
                     <ul class="skill-list">
-                        <li>Git</li>
-                        <li>Docker</li>
-                        <li>Apache Cordova</li>
-                        <li>Android Studio</li>
-                        <li>Electron</li>
-                        <li>CMS (Joomla)</li>
-                        <li>IReport</li>
+                        <li><i class="fab fa-git-alt"></i> Git</li>
+                        <li><i class="fab fa-docker"></i> Docker</li>
+                        <li><i class="fas fa-mobile-alt"></i> Apache Cordova</li>
+                        <li><i class="fab fa-android"></i> Android Studio</li>
+                        <li><i class="fas fa-desktop"></i> Electron</li>
+                        <li><i class="fas fa-cogs"></i> CMS (Joomla)</li>
+                        <li><i class="fas fa-file-alt"></i> IReport</li>
                     </ul>
                 </div>
             </div>
@@ -274,24 +342,229 @@
 
         <section id="experiencia">
             <h2>Experiencia Profesional</h2>
-            <div class="experience-item">
-                <div class="experience-header">
-                    <span class="experience-company">YACIMIENTOS PETROLÍFEROS FISCALES BOLIVIANOS (YPFB)</span>
-                    <span class="experience-date">13 años</span>
-                </div>
-                <p><strong>Cargo:</strong> Técnico de Software</p>
-                <p><strong>Tipo:</strong> Institución Pública</p>
-                <p><strong>Ubicación:</strong> La Paz</p>
-                <p><strong>Principales Sistemas Desarrollados:</strong></p>
-                <ul class="skill-list">
-                    <li>Sistema de análisis de datos Geológicos de Registros Eléctricos (.LAS)</li>
-                    <li>Sistema de Almacenes Integrado</li>
-                    <li>Sistema de marcación facial georeferenciado para control de asistencia</li>
-                    <li>Sistema de personal y pago de planillas</li>
-                    <li>Sistema de Facturación Móvil</li>
-                </ul>
+            <div class="experience-tabs">
+                <div class="experience-tab active" data-tab="ypfb">YPFB</div>
+                <div class="experience-tab" data-tab="daza">DAZA SOFTWARE</div>
+                <div class="experience-tab" data-tab="gmlp">GMLP</div>
+                <div class="experience-tab" data-tab="consultoria">CONSULTORÍA</div>
+                <div class="experience-tab" data-tab="embajada">EMBAJADA</div>
+                <div class="experience-tab" data-tab="ibtic">IBTIC</div>
+                <div class="experience-tab" data-tab="corimex">CORIMEX</div>
+                <div class="experience-tab" data-tab="autapo">AUTAPO</div>
             </div>
-            <!-- Más experiencia profesional se puede agregar aquí -->
+
+            <div class="experience-content active" id="ypfb">
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <span class="experience-company">YACIMIENTOS PETROLÍFEROS FISCALES BOLIVIANOS (YPFB)</span>
+                        <span class="experience-date">13 años</span>
+                    </div>
+                    <p><strong>Tipo:</strong> Institución Pública</p>
+                    <p><strong>Ubicación:</strong> La Paz</p>
+                    <p><strong>Cargo:</strong> Técnico de Software</p>
+                    <div class="experience-image">
+                        <span>Imagen de YPFB</span>
+                    </div>
+                    <p><strong>Herramientas Utilizadas:</strong></p>
+                    <ul class="skill-list">
+                        <li>.NET, JAVA Spring Boot, NodeJs, NestJs, Python, PHP</li>
+                        <li>SqlServer, Oracle, PostgreSQL, MySQL y SQLite</li>
+                        <li>Angular, Vue Nuxt, NextJs-react, Jquery, CSS3, PWA, Astro</li>
+                        <li>App Móvil Nativas y híbridas con Apache Cordova, PWA</li>
+                        <li>Git, Docker</li>
+                    </ul>
+                    <p><strong>Sistemas Desarrollados:</strong></p>
+                    <ul class="skill-list">
+                        <li>Sistema de análisis de datos Geológicos de Registros Eléctricos (.LAS)</li>
+                        <li>Sistema de Almacenes Integrado</li>
+                        <li>Sistema de marcación facial georeferenciado para control de asistencia</li>
+                        <li>Sistema de personal y pago de planillas</li>
+                        <li>Sistema de Facturación Móvil</li>
+                        <li>Sistema de Centralización de File Personal</li>
+                        <li>Módulo de Programación y solicitud de Vacaciones</li>
+                        <li>Sistema de Sorteo de empresas instaladoras</li>
+                        <li>Centralización de pacientes con covid en YPFB</li>
+                        <li>Sistema georeferenciado de usuarios y rutas de lecturación de Gas</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-content" id="daza">
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <span class="experience-company">DAZA SOFTWARE</span>
+                        <span class="experience-date">7 Meses</span>
+                    </div>
+                    <p><strong>Tipo:</strong> Institución Privada</p>
+                    <p><strong>Ubicación:</strong> La Paz</p>
+                    <p><strong>Cargo:</strong> Desarrollador de sistemas</p>
+                    <div class="experience-image">
+                        <span>Imagen de DAZA SOFTWARE</span>
+                    </div>
+                    <p><strong>Herramientas Utilizadas:</strong></p>
+                    <ul class="skill-list">
+                        <li>PHP5, MySQL, ORACLE</li>
+                        <li>JasperReport</li>
+                        <li>AJAX, CSS3 y HTML5</li>
+                    </ul>
+                    <p><strong>Funciones Desempeñadas:</strong></p>
+                    <ul class="skill-list">
+                        <li>Desarrollo y mantenimiento de sistemas</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-content" id="gmlp">
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <span class="experience-company">GOBIERNO MUNICIPAL DE LA CIUDAD DE LA PAZ</span>
+                        <span class="experience-date">4 Años</span>
+                    </div>
+                    <p><strong>Tipo:</strong> Institución Pública</p>
+                    <p><strong>Ubicación:</strong> La Paz</p>
+                    <p><strong>Cargo:</strong> Asistente de Desarrollo de Sistemas y Responsable de Mantenimiento</p>
+                    <div class="experience-image">
+                        <span>Imagen de GMLP</span>
+                    </div>
+                    <p><strong>Herramientas Utilizadas:</strong></p>
+                    <ul class="skill-list">
+                        <li>PHP5, MYSQL (Posterior migración a SQL-Server)</li>
+                        <li>PHP5 con AJAX, CSS3 y HTML5</li>
+                        <li>.NET 2010 MVC3 con SQL-Server</li>
+                    </ul>
+                    <p><strong>Sistemas Desarrollados:</strong></p>
+                    <ul class="skill-list">
+                        <li>Nuevo sistema de la Dirección de Supervisión de Obras</li>
+                        <li>Sub Sistema de Estadísticas del Sistema de Gestión de Obras (SGEO)</li>
+                        <li>Sub Sistema de Gestión de Seguimiento de Archivos del SGEO</li>
+                        <li>Sistema de Georeferenciación del SGEO</li>
+                        <li>Sub Sistema de Correspondencia del SGEO</li>
+                        <li>Sistema para Coordinadores de Obra del SGEO</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-content" id="consultoria">
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <span class="experience-company">CONSULTORÍA INDEPENDIENTE</span>
+                        <span class="experience-date">3 Meses</span>
+                    </div>
+                    <p><strong>Tipo:</strong> Mercados y Prefectura</p>
+                    <p><strong>Ubicación:</strong> La Paz</p>
+                    <p><strong>Cargo:</strong> Desarrollador de Sistemas</p>
+                    <div class="experience-image">
+                        <span>Imagen de Consultoría</span>
+                    </div>
+                    <p><strong>Herramientas Utilizadas:</strong></p>
+                    <ul class="skill-list">
+                        <li>PHP5, MYSQL y PostgreSQL</li>
+                        <li>AJAX, CSS3 y HTML5</li>
+                    </ul>
+                    <p><strong>Sistemas Desarrollados:</strong></p>
+                    <ul class="skill-list">
+                        <li>Sistema de Geoposicionamiento para la Asociación de Comerciantes Minoristas Buenos Aires Huyustus</li>
+                        <li>Sistema de Administración de documentación de la Prefectura de La Paz</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-content" id="embajada">
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <span class="experience-company">EMBAJADA DE DINAMARCA</span>
+                        <span class="experience-date">1 Mes</span>
+                    </div>
+                    <p><strong>Tipo:</strong> Embajada</p>
+                    <p><strong>Ubicación:</strong> La Paz</p>
+                    <p><strong>Cargo:</strong> Consultor - Valoración y evaluación de Sistema SISEGER del MDRyT</p>
+                    <div class="experience-image">
+                        <span>Imagen de Embajada</span>
+                    </div>
+                    <p><strong>Funciones Desempeñadas:</strong></p>
+                    <ul class="skill-list">
+                        <li>Valoración y evaluación del sistema SISEGER del MDRyT</li>
+                        <li>Relevamiento de información del estado de desarrollo</li>
+                        <li>Evaluación de alcances e impacto social</li>
+                        <li>Análisis de logros obtenidos durante la consultoría</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-content" id="ibtic">
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <span class="experience-company">EMPRESA CONSULTORA IBTIC</span>
+                        <span class="experience-date">7 Meses</span>
+                    </div>
+                    <p><strong>Tipo:</strong> Empresa Privada</p>
+                    <p><strong>Ubicación:</strong> La Paz</p>
+                    <p><strong>Cargo:</strong> Desarrollador de Sistemas</p>
+                    <div class="experience-image">
+                        <span>Imagen de IBTIC</span>
+                    </div>
+                    <p><strong>Sistemas Desarrollados:</strong></p>
+                    <ul class="skill-list">
+                        <li>Sistema de Control de Asistencia con Biométrico (Universidad Amazónica de Pando y Fundación AUTAPO)</li>
+                        <li>Sistema de Caja Chica (Fundación FAUTAPO)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-content" id="corimex">
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <span class="experience-company">CORIMEX LTD.</span>
+                        <span class="experience-date">5 Meses</span>
+                    </div>
+                    <p><strong>Tipo:</strong> Institución Privada</p>
+                    <p><strong>Ubicación:</strong> La Paz</p>
+                    <p><strong>Cargo:</strong> Desarrollador de Sistemas</p>
+                    <div class="experience-image">
+                        <span>Imagen de CORIMEX</span>
+                    </div>
+                    <p><strong>Sistemas Desarrollados:</strong></p>
+                    <ul class="skill-list">
+                        <li>Sistema de Soporte Técnico y Ventas</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-content" id="autapo">
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <span class="experience-company">FUNDACIÓN AUTAPO</span>
+                        <span class="experience-date">3 Años</span>
+                    </div>
+                    <p><strong>Tipo:</strong> Institución Privada sin fines de lucro</p>
+                    <p><strong>Ubicación:</strong> La Paz</p>
+                    <p><strong>Cargo:</strong> Consultor TIC</p>
+                    <div class="experience-image">
+                        <span>Imagen de AUTAPO</span>
+                    </div>
+                    <p><strong>Sistemas Desarrollados:</strong></p>
+                    <ul class="skill-list">
+                        <li>Sistema Alexandria (Gestión de proyectos para el Centro de Investigación de la UMSA)</li>
+                        <li>Apoyo en el Sistema de Inscripciones (SI) de la UMSA</li>
+                        <li>Sistema de gestión de Almacenes e Inventarios (AURELIO)</li>
+                    </ul>
+                    <p><strong>Implementaciones del Sistema AURELIO:</strong></p>
+                    <ul class="skill-list">
+                        <li>Prefectura de Tarija</li>
+                        <li>18 almacenes de la Prefectura de Cochabamba</li>
+                        <li>Universidad Mayor de San Andrés (D.A.F.)</li>
+                        <li>Universidad Amazónica de Pando</li>
+                        <li>Vice presidencia de la República de Bolivia</li>
+                        <li>Asamblea Constituyente (Sucre-Bolivia)</li>
+                        <li>Sucursales de la Fundación Autapo</li>
+                    </ul>
+                    <p><strong>Capacitaciones Realizadas:</strong></p>
+                    <ul class="skill-list">
+                        <li>Capacitación al Personal del Estado Mayor DIME en PHP</li>
+                        <li>Capacitación al Personal de desarrollo del departamento del UMSA-TIC (Java, Postgres)</li>
+                    </ul>
+                </div>
+            </div>
         </section>
 
         <section id="educacion">
@@ -309,6 +582,21 @@
                 <p>Educación Secundaria</p>
             </div>
         </section>
+
+        <section id="cursos">
+            <h2>Cursos y Seminarios</h2>
+            <div class="experience-item">
+                <ul class="skill-list">
+                    <li>Seguridad Informática - Microsoft (2003, La Paz)</li>
+                    <li>Cableado de Redes - UDABOL/UMSA</li>
+                    <li>Manejo del Sistema de información de Activos fijos (SIAF)</li>
+                    <li>CCBOL - UAJMS (2005)</li>
+                    <li>Certificado de Capacitación Al Personal del Estado Mayor DIME en PHP</li>
+                    <li>Certificado de Capacitación al Personal de desarrollo del departamento del UMSA-TIC (Java, Postgres)</li>
+                    <li>Certificado de capacitador de IReport</li>
+                </ul>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -316,5 +604,25 @@
             <p>&copy; 2024 René Pastor Mamani Flores. Todos los derechos reservados.</p>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.experience-tab');
+            const contents = document.querySelectorAll('.experience-content');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove active class from all tabs and contents
+                    tabs.forEach(t => t.classList.remove('active'));
+                    contents.forEach(c => c.classList.remove('active'));
+
+                    // Add active class to clicked tab and corresponding content
+                    tab.classList.add('active');
+                    const contentId = tab.getAttribute('data-tab');
+                    document.getElementById(contentId).classList.add('active');
+                });
+            });
+        });
+    </script>
 </body>
 </html> 

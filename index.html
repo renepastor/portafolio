@@ -3,10 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portafolio personal - Desarrollador Web">
-    <title>Mi Portafolio</title>
+    <meta name="description" content="Portafolio de René Pastor Mamani Flores - Desarrollador Full Stack con más de 18 años de experiencia">
+    <title>René Pastor Mamani Flores | Desarrollador Full Stack</title>
     <style>
-        /* Estilos básicos para empezar */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --text-color: #333;
+            --light-bg: #f8f9fa;
+            --border-color: #e9ecef;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -14,49 +21,300 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', 'Arial', sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
         }
 
         header {
-            background-color: #2c3e50;
+            background-color: var(--primary-color);
             color: white;
-            text-align: center;
-            padding: 2rem;
+            padding: 2rem 0;
+            position: relative;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .profile-info {
+            flex: 1;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
         }
 
         main {
-            max-width: 1200px;
-            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        section {
+            background: white;
+            border-radius: 8px;
             padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         h1 {
             font-size: 2.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
 
-        p {
-            margin-bottom: 1rem;
+        h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        h3 {
+            color: var(--secondary-color);
+            margin: 1.5rem 0 1rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .skill-category {
+            background: var(--light-bg);
+            padding: 1rem;
+            border-radius: 6px;
+        }
+
+        .skill-category h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .skill-list li::before {
+            content: "•";
+            color: var(--secondary-color);
+            position: absolute;
+            left: 0;
+        }
+
+        .experience-item {
+            margin-bottom: 2rem;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-company {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .experience-date {
+            color: var(--secondary-color);
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .contact-info {
+                justify-content: center;
+            }
+
+            .experience-header {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Mi Portafolio</h1>
-        <p>Desarrollador Web</p>
+        <div class="container">
+            <div class="header-content">
+                <div class="profile-info">
+                    <h1>René Pastor Mamani Flores</h1>
+                    <p>Desarrollador de Sistemas (Full Stack)</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>📱</span>
+                            <a href="tel:+59168237677">+591 68237677</a>
+                        </div>
+                        <div class="contact-item">
+                            <span>📧</span>
+                            <a href="mailto:renepastor@gmail.com">renepastor@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://github.com/renepastor" target="_blank">github.com/renepastor</a>
+                        </div>
+                        <div class="contact-item">
+                            <span>💼</span>
+                            <a href="https://linkedin.com/in/renepastor" target="_blank">linkedin.com/in/renepastor</a>
+                        </div>
+                        <div class="contact-item">
+                            <span>📍</span>
+                            <span>La Paz, Bolivia</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
 
-    <main>
-        <section>
-            <h2>¡Bienvenido a mi portafolio!</h2>
-            <p>Este es un sitio en construcción donde mostraré mis proyectos y habilidades como desarrollador web.</p>
+    <main class="container">
+        <section id="perfil">
+            <h2>Perfil Profesional</h2>
+            <p>Desarrollador de sistemas con una sólida trayectoria de más de 18 años en el análisis y desarrollo de soluciones informáticas innovadoras y personalizadas para diversos sectores, incluyendo instituciones públicas y empresas privadas. Experiencia comprobada liderando y colaborando en equipos multidisciplinarios bajo metodologías ágiles. Apasionado por la adopción de nuevas tecnologías y el crecimiento profesional continuo.</p>
+        </section>
+
+        <section id="habilidades">
+            <h2>Habilidades Técnicas</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Lenguajes de Programación</h4>
+                    <ul class="skill-list">
+                        <li>JAVA (Spring Framework, Spring Boot)</li>
+                        <li>NodeJs</li>
+                        <li>PHP (Smarty, PEAR)</li>
+                        <li>.NET (MVC2, MVC3)</li>
+                        <li>Python</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>Front-End</h4>
+                    <ul class="skill-list">
+                        <li>VueJs (Nuxt)</li>
+                        <li>React (NextJS)</li>
+                        <li>Angular</li>
+                        <li>Astro</li>
+                        <li>JQuery</li>
+                        <li>HTML5</li>
+                        <li>CSS3</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>Bases de Datos</h4>
+                    <ul class="skill-list">
+                        <li>PostgreSQL</li>
+                        <li>MySQL</li>
+                        <li>Oracle (PL/SQL)</li>
+                        <li>SQLite</li>
+                        <li>MSSQL</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>Herramientas & Otros</h4>
+                    <ul class="skill-list">
+                        <li>Git</li>
+                        <li>Docker</li>
+                        <li>Apache Cordova</li>
+                        <li>Android Studio</li>
+                        <li>Electron</li>
+                        <li>CMS (Joomla)</li>
+                        <li>IReport</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="experiencia">
+            <h2>Experiencia Profesional</h2>
+            <div class="experience-item">
+                <div class="experience-header">
+                    <span class="experience-company">YACIMIENTOS PETROLÍFEROS FISCALES BOLIVIANOS (YPFB)</span>
+                    <span class="experience-date">13 años</span>
+                </div>
+                <p><strong>Cargo:</strong> Técnico de Software</p>
+                <p><strong>Tipo:</strong> Institución Pública</p>
+                <p><strong>Ubicación:</strong> La Paz</p>
+                <p><strong>Principales Sistemas Desarrollados:</strong></p>
+                <ul class="skill-list">
+                    <li>Sistema de análisis de datos Geológicos de Registros Eléctricos (.LAS)</li>
+                    <li>Sistema de Almacenes Integrado</li>
+                    <li>Sistema de marcación facial georeferenciado para control de asistencia</li>
+                    <li>Sistema de personal y pago de planillas</li>
+                    <li>Sistema de Facturación Móvil</li>
+                </ul>
+            </div>
+            <!-- Más experiencia profesional se puede agregar aquí -->
+        </section>
+
+        <section id="educacion">
+            <h2>Educación</h2>
+            <div class="experience-item">
+                <div class="experience-header">
+                    <span class="experience-company">Universidad Mayor de San Andrés</span>
+                </div>
+                <p>Egresado de Informática</p>
+            </div>
+            <div class="experience-item">
+                <div class="experience-header">
+                    <span class="experience-company">Unidad Educativa Juvenal Mariaca</span>
+                </div>
+                <p>Educación Secundaria</p>
+            </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 Mi Portafolio. Todos los derechos reservados.</p>
+        <div class="container">
+            <p>&copy; 2024 René Pastor Mamani Flores. Todos los derechos reservados.</p>
+        </div>
     </footer>
 </body>
 </html> 

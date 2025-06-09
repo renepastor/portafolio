@@ -11,7 +11,7 @@
         :root {
             --primary-color: #1a1a1a;
             --secondary-color: #2d2d2d;
-            --accent-color: #00a8ff;
+            --accent-color: #767680;
             --text-color: #e0e0e0;
             --text-secondary: #b0b0b0;
             --border-color: #404040;
@@ -27,11 +27,70 @@
             transition: background-color 0.3s, color 0.3s;
         }
 
+        html {
+            min-height: 100%;
+            background: #1a1a1a;
+        }
+
         body {
-            font-family: 'Segoe UI', 'Arial', sans-serif;
+            font-family: 'Roboto', sans-serif;
             line-height: 1.6;
+            margin: 0;
+            padding: 0;
             color: var(--text-color);
-            background-color: var(--primary-color);
+            min-height: 100vh;
+            position: relative;
+            background: #1a1a1a;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100vw;
+            height: 100vh;
+            background: radial-gradient(circle at center,
+                rgba(0, 168, 255, 0.3) 0%,
+                rgba(26, 26, 26, 0.98) 60%,
+                rgba(45, 45, 45, 1) 100%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        header {
+            background: transparent;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .contact-perfil {
+            padding: 2rem;
+            background: rgba(26, 26, 26, 0.7);
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        section {
+            background: rgba(26, 26, 26, 0.7);
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            padding: 2rem;
+        }
+
+        /* Eliminar todos los ::before y ::after que creaban efectos adicionales */
+        body::before,
+        header::after,
+        .contact-perfil::before,
+        section::before {
+            display: none;
         }
 
         .container {
@@ -41,11 +100,26 @@
         }
 
         header {
-            background-color: var(--header-bg);
-            color: var(--text-color);
+            background: linear-gradient(180deg,
+                rgba(0, 168, 255, 0.2) 0%,
+                rgba(26, 26, 26, 0.95) 100%);
             padding: 2rem 0;
+            text-align: center;
             position: relative;
-            border-bottom: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: radial-gradient(circle at center,
+                rgba(0, 168, 255, 0.2) 0%,
+                transparent 70%);
+            pointer-events: none;
         }
 
         .header-content {
@@ -59,13 +133,15 @@
 
         .profile-info {
             flex: 1;
+            text-align: center;
         }
 
         .contact-info {
             display: flex;
             flex-wrap: wrap;
-            gap: 1rem;
+            gap: 1.5rem;
             margin-top: 1rem;
+            justify-content: center;
         }
 
         .contact-item {
@@ -73,36 +149,104 @@
             align-items: center;
             gap: 0.5rem;
             color: var(--text-secondary);
+            position: relative;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            /*background: var(--secondary-color); */
             transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .contact-item .emoji {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-item .emoji svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--text-color);
+        }
+
+        .contact-item:hover .emoji {
+            transform: scale(1.2);
         }
 
         .contact-item a {
             color: var(--text-color);
             text-decoration: none;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+            padding: 5px;
         }
 
         .contact-item a:hover {
             color: var(--accent-color);
-            text-shadow: 0 0 8px var(--accent-color);
+        }
+
+        .copy-button {
+            background: transparent;
+            color: var(--text-color);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            padding: 0.2rem;
+            border-radius: 4px;
+            opacity: 0;
+            transform: translateX(-10px);
+            position: absolute;
+            right: 25px;
+            top: -15px;
+        }
+
+        .contact-item:hover .copy-button {
+            opacity: 0.7;
+            transform: translateX(0);
+        }
+
+        .copy-button:hover {
+            opacity: 1;
+            color: var(--accent-color);
+            transform: scale(1.1);
+        }
+
+        .copy-tooltip {
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-color);
+            color: var(--text-color);
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            opacity: 0;
+            transition: all 0.3s ease;
+            pointer-events: none;
+            white-space: nowrap;
+            z-index: 1000;
+        }
+
+        .copy-tooltip.show {
+            opacity: 1;
+            bottom: -35px;
         }
 
         main {
             padding: 2rem 0;
-        }
-
-        section {
-            background: var(--card-bg);
-            border-radius: 8px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            border: 1px solid var(--border-color);
-            animation: fadeInUp 0.8s ease-out;
-            transition: all 0.3s ease;
-        }
-
-        section:hover {
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
 
         h1 {
@@ -536,35 +680,57 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        main.container {
+            position: relative;
+            z-index: 1;
+            background: transparent;
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
             <div class="header-content">
-                <div class="profile-info">
+                <div class="profile-info animate-scroll">
                     <h1>René Pastor Mamani Flores</h1>
                     <p>Desarrollador de Sistemas (Full Stack)</p>
                     <div class="contact-info">
                         <div class="contact-item">
-                            <span>📱</span>
-                            <a href="tel:+59168237677">+591 68237677</a>
+                            <span class="emoji">📱</span>
+                            <a href="tel:+59168237677">
+                                +591 68237677
+                                <button class="copy-button" data-copy="+59168237677" title="Copiar número">📋</button>
+                            </a>
+                            <span class="copy-tooltip">¡Copiado!</span>
                         </div>
                         <div class="contact-item">
-                            <span>📧</span>
-                            <a href="mailto:renepastor@gmail.com">renepastor@gmail.com</a>
+                            <span class="emoji">📧</span>
+                            <a href="mailto:renepastor@gmail.com">
+                                renepastor@gmail.com
+                                <button class="copy-button" data-copy="renepastor@gmail.com" title="Copiar email">📋</button>
+                            </a>
+                            <span class="copy-tooltip">¡Copiado!</span>
                         </div>
                         <div class="contact-item">
-                            <span>🌐</span>
-                            <a href="https://github.com/renepastor" target="_blank">github.com/renepastor</a>
+                            <span class="emoji">
+                                <svg width="24px" height="24px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="none"><path fill="#000000" fill-rule="evenodd" d="M8 1C4.133 1 1 4.13 1 7.993c0 3.09 2.006 5.71 4.787 6.635.35.064.478-.152.478-.337 0-.166-.006-.606-.01-1.19-1.947.423-2.357-.937-2.357-.937-.319-.808-.778-1.023-.778-1.023-.635-.434.048-.425.048-.425.703.05 1.073.72 1.073.72.624 1.07 1.638.76 2.037.582.063-.452.244-.76.444-.935-1.554-.176-3.188-.776-3.188-3.456 0-.763.273-1.388.72-1.876-.072-.177-.312-.888.07-1.85 0 0 .586-.189 1.924.716A6.711 6.711 0 018 4.381c.595.003 1.194.08 1.753.236 1.336-.905 1.923-.717 1.923-.717.382.963.142 1.674.07 1.85.448.49.72 1.114.72 1.877 0 2.686-1.638 3.278-3.197 3.45.251.216.475.643.475 1.296 0 .934-.009 1.688-.009 1.918 0 .187.127.404.482.336A6.996 6.996 0 0015 7.993 6.997 6.997 0 008 1z" clip-rule="evenodd"/></svg>
+                            </span>
+                            <a href="https://github.com/renepastor" target="_blank">
+                                github.com/renepastor
+                                <button class="copy-button" data-copy="https://github.com/renepastor" title="Copiar enlace">📋</button>
+                            </a>
+                            <span class="copy-tooltip">¡Copiado!</span>
                         </div>
                         <div class="contact-item">
-                            <span>💼</span>
-                            <a href="https://linkedin.com/in/renepastor" target="_blank">linkedin.com/in/renepastor</a>
-                        </div>
-                        <div class="contact-item">
-                            <span>📍</span>
-                            <span>La Paz, Bolivia</span>
+                            <span class="emoji">
+                                <svg width="24px" height="24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+                            </span>
+                            <a href="https://linkedin.com/in/renepastor" target="_blank">
+                                linkedin.com/in/renepastor
+                                <button class="copy-button" data-copy="https://linkedin.com/in/renepastor" title="Copiar enlace">📋</button>
+                            </a>
+                            <span class="copy-tooltip">¡Copiado!</span>
                         </div>
                     </div>
                 </div>
@@ -573,10 +739,10 @@
     </header>
 
     <main class="container">
-        <section id="perfil">
+        <div id="perfil" class="contact-perfil">
             <h2>Perfil Profesional</h2>
             <p>Desarrollador de sistemas, con más de 18 años en el área de análisis y desarrollo de sistemas en empresas públicas y privadas con equipos diversos utilizando metodologías ágiles. Elaboración de soluciones informáticas personalizadas. Apasionado por el crecimiento profesional continuo.</p>
-        </section>
+        </div>
 
         <section id="habilidades">
             <h2>Habilidades Técnicas</h2>
@@ -889,7 +1055,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 René Pastor Mamani Flores. Todos los derechos reservados.</p>
+            <p>&copy; 2025 René Pastor Mamani Flores</p>
         </div>
     </footer>
 
@@ -950,6 +1116,28 @@
                 const header = document.querySelector('header');
                 const scrollPosition = window.scrollY;
                 header.style.backgroundPositionY = `${scrollPosition * 0.5}px`;
+            });
+
+            // Función para copiar al portapapeles
+            const copyButtons = document.querySelectorAll('.copy-button');
+            copyButtons.forEach(button => {
+                button.addEventListener('click', async (e) => {
+                    e.preventDefault();
+                    const textToCopy = button.getAttribute('data-copy');
+                    const tooltip = button.nextElementSibling;
+                    
+                    try {
+                        await navigator.clipboard.writeText(textToCopy);
+                        tooltip.classList.add('show');
+                        
+                        // Ocultar el tooltip después de 2 segundos
+                        setTimeout(() => {
+                            tooltip.classList.remove('show');
+                        }, 2000);
+                    } catch (err) {
+                        console.error('Error al copiar:', err);
+                    }
+                });
             });
         });
     </script>

@@ -454,6 +454,19 @@
         }
 
         @media (max-width: 768px) {
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0;
+            }
+            section {
+                background: rgba(26, 26, 26, 0.7);
+                border-radius: 10px;
+                backdrop-filter: blur(5px);
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                margin-bottom: 2rem;
+                padding: 1rem;
+            }
             .header-content {
                 flex-direction: column;
                 text-align: center;
@@ -751,10 +764,10 @@
                     <h4><i class="fas fa-code"></i> Lenguajes de Programación</h4>
                     <ul class="skill-list">
                         <li><i class="fab fa-java"></i> JAVA (Spring Framework, Spring Boot)</li>
-                        <li><i class="fab fa-node-js"></i> NodeJs</li>
-                        <li><i class="fab fa-php"></i> PHP (Smarty, PEAR)</li>
-                        <li><i class="fab fa-microsoft"></i> .NET (MVC2, MVC3)</li>
-                        <li><i class="fab fa-python"></i> Python</li>
+                        <li><i class="fab fa-node-js"></i> NodeJs (Sails, Express, NestJs)</li>
+                        <li><i class="fab fa-php"></i> PHP (Smarty, PEAR, Laravel)</li>
+                        <li><i class="fab fa-microsoft"></i> .NET (MVC, Core)</li>
+                        <li><i class="fab fa-python"></i> Python (FastApi)</li>
                     </ul>
                 </div>
                 <div class="skill-category">
@@ -800,11 +813,11 @@
                 <div class="experience-tab active" data-tab="ypfb">YPFB</div>
                 <div class="experience-tab" data-tab="daza">DAZA SOFTWARE</div>
                 <div class="experience-tab" data-tab="gmlp">GMLP</div>
+                <div class="experience-tab" data-tab="autapo">AUTAPO</div>
                 <div class="experience-tab" data-tab="consultoria">CONSULTORÍA</div>
                 <div class="experience-tab" data-tab="embajada">EMBAJADA</div>
                 <div class="experience-tab" data-tab="ibtic">IBTIC</div>
                 <div class="experience-tab" data-tab="corimex">CORIMEX</div>
-                <div class="experience-tab" data-tab="autapo">AUTAPO</div>
             </div>
 
             <div class="experience-content active" id="ypfb">
@@ -817,7 +830,7 @@
                     <p><strong>Ubicación:</strong> La Paz</p>
                     <p><strong>Cargo:</strong> Técnico de Software</p>
                     <div class="experience-image">
-                        <span>Imagen de YPFB</span>
+                        <img src="./img/sd23f00ds02121.jpg" width="100%" height="100%" alt="Imagen de YPFB">
                     </div>
                     <p><strong>Herramientas Utilizadas:</strong></p>
                     <ul class="skill-list">
@@ -853,7 +866,7 @@
                     <p><strong>Ubicación:</strong> La Paz</p>
                     <p><strong>Cargo:</strong> Desarrollador de sistemas</p>
                     <div class="experience-image">
-                        <span>Imagen de DAZA SOFTWARE</span>
+                        <img src="./img/asdf78a7s5f.jpg" width="100%" height="100%" alt="Imagen de DAZA SOFTWARE">
                     </div>
                     <p><strong>Herramientas Utilizadas:</strong></p>
                     <ul class="skill-list">
@@ -994,7 +1007,7 @@
                     <p><strong>Ubicación:</strong> La Paz</p>
                     <p><strong>Cargo:</strong> Consultor TIC</p>
                     <div class="experience-image">
-                        <span>Imagen de AUTAPO</span>
+                        <img src="./img/fm234lk2423.jpg" width="100%" height="100%" alt="Imagen de AUTAPO">
                     </div>
                     <p><strong>Sistemas Desarrollados:</strong></p>
                     <ul class="skill-list">
@@ -1021,6 +1034,29 @@
             </div>
         </section>
 
+        
+        <section id="cursos">
+            <h2>👨‍🏫 Certificado de Capacitador</h2>
+            <div class="experience-item">
+                <ul class="skill-list">
+                    <li>⭐Al Personal del Estado Mayor DIME en PHP</li>
+                    <li>⭐Al Personal de desarrollo del departamento del Universidad Mayor de San Andres UMSA-TIC en (Java Spring, Postgres)</li>
+                    <li>⭐Al personal de Daza Software en IReport</li>
+                </ul>
+            </div>
+        </section>
+        <section id="cursos">
+            <h2>Cursos y Seminarios</h2>
+            <div class="experience-item">
+                <ul class="skill-list">
+                    <li>⭐Seguridad Informática - Microsoft (2003, La Paz)</li>
+                    <li>⭐Cableado de Redes - UDABOL/UMSA</li>
+                    <li>⭐Manejo del Sistema de información de Activos fijos (SIAF)</li>
+                    <li>⭐CCBOL - UAJMS (2005)</li>
+                </ul>
+            </div>
+        </section>
+
         <section id="educacion">
             <h2>Educación</h2>
             <div class="experience-item">
@@ -1037,20 +1073,6 @@
             </div>
         </section>
 
-        <section id="cursos">
-            <h2>Cursos y Seminarios</h2>
-            <div class="experience-item">
-                <ul class="skill-list">
-                    <li>Seguridad Informática - Microsoft (2003, La Paz)</li>
-                    <li>Cableado de Redes - UDABOL/UMSA</li>
-                    <li>Manejo del Sistema de información de Activos fijos (SIAF)</li>
-                    <li>CCBOL - UAJMS (2005)</li>
-                    <li>Certificado de Capacitación Al Personal del Estado Mayor DIME en PHP</li>
-                    <li>Certificado de Capacitación al Personal de desarrollo del departamento del UMSA-TIC (Java, Postgres)</li>
-                    <li>Certificado de capacitador de IReport</li>
-                </ul>
-            </div>
-        </section>
     </main>
 
     <footer>

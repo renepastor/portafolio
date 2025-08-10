@@ -29,7 +29,7 @@
 
         html {
             min-height: 100%;
-            background: #1a1a1a;
+            /* background: #1a1a1a; */
         }
 
         body {
@@ -40,7 +40,7 @@
             color: var(--text-color);
             min-height: 100vh;
             position: relative;
-            background: #1a1a1a;
+            /*background: #1a1a1a; */
         }
 
         body::before {
@@ -52,10 +52,10 @@
             bottom: 0;
             width: 100vw;
             height: 100vh;
-            background: radial-gradient(circle at center,
+            /*background: radial-gradient(circle at center,
                 rgba(0, 168, 255, 0.3) 0%,
                 rgba(26, 26, 26, 0.98) 60%,
-                rgba(45, 45, 45, 1) 100%);
+                rgba(45, 45, 45, 1) 100%);*/
             z-index: -1;
             pointer-events: none;
         }
@@ -100,9 +100,9 @@
         }
 
         header {
-            background: linear-gradient(180deg,
+            /* background: linear-gradient(180deg,
                 rgba(0, 168, 255, 0.2) 0%,
-                rgba(26, 26, 26, 0.95) 100%);
+                rgba(26, 26, 26, 0.95) 100%); */
             padding: 2rem 0;
             text-align: center;
             position: relative;
@@ -700,9 +700,14 @@
             background: transparent;
         }
         .fondo-pant{
-            background: linear-gradient(180deg, rgba(0, 168, 255, 0.2) 0%, rgba(26, 26, 26, 0.95) 100%);
+            /* background: linear-gradient(180deg, rgb(2 23 113 / 53%) 0%, rgba(26, 26, 26, 0.95) 100%); */
+            background: radial-gradient(circle at center,
+                rgba(0, 168, 255, 0.3) 0%,
+                rgba(26, 26, 26, 0.98) 60%,
+                rgba(45, 45, 45, 1) 100%);
             width: 100%;
             height: 100%;
+            position: fixed;
         }
     </style>
 </head>

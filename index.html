@@ -89,26 +89,48 @@
       height: 100%;
       margin: 0;
       font-family: Inter, system-ui, -apple-system, Roboto, 'Segoe UI', 'Helvetica Neue', Arial;
-      background: radial-gradient(circle at 30% 40%, rgba(255, 0, 150, 0.4), transparent 40%),
-                  radial-gradient(circle at 70% 60%, rgba(0, 200, 255, 0.35), transparent 40%),
-                  radial-gradient(circle at 50% 80%, rgba(255, 255, 0, 0.25), transparent 50%),
-                  radial-gradient(circle at center, rgba(26, 26, 26, 0.95), rgba(10, 10, 15, 1) 80%);
-      background-blend-mode: screen, screen, screen, normal;
+      background: linear-gradient(180deg, #020617 0%, #0b1220 100%);
       position: fixed;
       width: 100%;
       height: 100%;
-      overflow: hidden;
+      overflow: auto;
+      color: var(--text-color);
     }
 
+    /* Cintas de aurora */
     body::before {
       content: "";
       position: absolute;
       inset: 0;
+      background: repeating-linear-gradient(120deg,
+        rgba(0,255,200,0.15) 0%,
+        rgba(0,255,200,0.2) 10%,
+        rgba(0,200,255,0.15) 20%,
+        rgba(0,255,150,0.1) 30%,
+        transparent 40%
+      );
+      background-size: 200% 200%;
+      mix-blend-mode: screen;
+      animation: auroraFlow 18s ease-in-out infinite alternate;
+    }
+
+    @keyframes auroraFlow {
+      0% { background-position: 0% 50%; filter: hue-rotate(0deg) blur(20px); }
+      50% { background-position: 100% 50%; filter: hue-rotate(60deg) blur(25px); }
+      100% { background-position: 0% 50%; filter: hue-rotate(120deg) blur(20px); }
+    }
+
+    /* Estrellas */
+    body::after {
+      content: "";
+      position: absolute;
+      inset: 0;
       background: url('https://www.transparenttextures.com/patterns/stardust.png');
-      opacity: 0.4;
+      opacity: 0.5;
       mix-blend-mode: lighten;
       animation: starsMove 200s linear infinite;
     }
+
 
         header {
             background: transparent;
@@ -750,14 +772,14 @@
             background: transparent;
         }
         .fondo-pant{
-            /* background: linear-gradient(180deg, rgb(2 23 113 / 53%) 0%, rgba(26, 26, 26, 0.95) 100%); */
+            /* background: linear-gradient(180deg, rgb(2 23 113 / 53%) 0%, rgba(26, 26, 26, 0.95) 100%); 
             background: radial-gradient(circle at center,
                 rgba(0, 168, 255, 0.3) 0%,
                 rgba(26, 26, 26, 0.98) 60%,
                 rgba(45, 45, 45, 1) 100%);
             width: 100%;
             height: 100%;
-            position: fixed;
+            position: fixed;*/
         }
     </style>
 </head>

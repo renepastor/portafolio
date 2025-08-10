@@ -31,7 +31,7 @@
             min-height: 100%;
             /* background: #1a1a1a; */
         }
-
+/*
         body {
             font-family: 'Roboto', sans-serif;
             line-height: 1.6;
@@ -40,7 +40,7 @@
             color: var(--text-color);
             min-height: 100vh;
             position: relative;
-            /*background: #1a1a1a; */
+            background: #1a1a1a;
         }
 
         body::before {
@@ -52,13 +52,36 @@
             bottom: 0;
             width: 100vw;
             height: 100vh;
-            /*background: radial-gradient(circle at center,
+            background: radial-gradient(circle at center,
                 rgba(0, 168, 255, 0.3) 0%,
                 rgba(26, 26, 26, 0.98) 60%,
-                rgba(45, 45, 45, 1) 100%);*/
+                rgba(45, 45, 45, 1) 100%);
             z-index: -1;
             pointer-events: none;
-        }
+        }*/
+        html, body {
+      height: 100%;
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Roboto, 'Segoe UI', 'Helvetica Neue', Arial;
+      background: radial-gradient(circle at center,
+        rgba(0, 168, 255, 0.3) 0%,
+        rgba(26, 26, 26, 0.98) 60%,
+        rgba(45, 45, 45, 1) 100%),
+        conic-gradient(from 180deg at 50% 50%, rgba(255, 0, 150, 0.2), rgba(0, 255, 255, 0.1), rgba(255, 255, 0, 0.15), rgba(255, 0, 150, 0.2));
+      background-blend-mode: overlay, normal;
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+ body::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 4px);
+      mix-blend-mode: overlay;
+      animation: shimmer 15s linear infinite;
+    }
 
         header {
             background: transparent;
